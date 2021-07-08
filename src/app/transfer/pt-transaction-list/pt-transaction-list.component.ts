@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './pt-transaction-list.component.html'
 })
 export class TransactionListComponent implements OnInit {
-
+  title = 'Transactions List'
   constructor() { }
 
   ngOnInit(): void {

@@ -1,1 +1,68 @@
-<p>pt-transfer works!</p>
+<pt-panel-container [title]="title">
+  <form #transferForm="ngForm" (ngSubmit)="onSubmit(transferForm)" novalidate>
+    <div class="form-group">
+      <label for="fromaccount" class="form-label">From Account </label>
+      <input
+        type="text"
+        id="fromaccount"
+        class="form-control"
+        name="fromaccount"
+        #fromaccount="ngModel"
+        [(ngModel)]="transfer"
+        readonly
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="toaccount" class="form-label">To Account </label>
+      <input
+        type="text"
+        id="toaccount"
+        class="form-control form-control-sm"
+        name="toaccount"
+        placeholder="type an account name"
+        required
+        #toaccount="ngModel"
+        [(ngModel)]="transfer"
+      />
+      <div
+        *ngIf="!toaccount?.valid && (toaccount?.dirty || toaccount?.touched)"
+        class="text-danger"
+      >
+        <small *ngIf="toaccount.errors.required">To Account is required</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="amount" class="form-label">Amount </label>
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text">€</div>
+        </div>
+        <input
+          type="text"
+          id="amount"
+          class="form-control form-control-sm"
+          name="amount"
+          placeholder="specify an amount"
+          required
+          #amount="ngModel"
+          [(ngModel)]="transfer"
+          max="500"
+        />
+      </div>
+
+      <div
+        *ngIf="!amount?.valid && (amount?.dirty || amount?.touched)"
+        class="invalid-feedback"
+      >
+        <small *ngIf="email.errors.required">Amount is required</small>
+        <small *ngIf="amount.errors.max">Amount cannot be greater than 500</small>
+      </div>
+    </div>
+
+    <div class="submit">
+      <app-submit-button></app-submit-button>
+    </div>
+  </form>
+</pt-panel-container>

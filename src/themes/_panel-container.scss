@@ -1,0 +1,15 @@
+.panel-container{
+  .panel-header{
+    color: $primary-white;
+    background-color: #00a1e0;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    height: 2.5rem;
+    padding-left: 1rem;
+  }
+
+  .panel-body{
+    background-color: $primary-white;
+    padding: 1rem;
+  }
+}

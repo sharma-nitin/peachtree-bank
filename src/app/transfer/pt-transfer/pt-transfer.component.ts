@@ -5,10 +5,15 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './pt-transfer.component.html'
 })
 export class TransferComponent implements OnInit {
-
+  transfer;
+  title = 'Make Transfer'
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onSubmit(event) {
+
   }
 
 }

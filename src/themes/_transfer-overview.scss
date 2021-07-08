@@ -1,4 +1,13 @@
-.transfer-overview{
+.transfer-overview {
+  padding-top: 2rem;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  .transfer {
+    width: 30%;
+    margin: 0 1rem;
+  }
+  .transaction {
+    width: 50%;
+    margin: 0 1rem;
+  }
 }

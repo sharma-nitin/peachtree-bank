@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 import { FooterComponent } from './components/pt-footer/pt-footer.component';
 import { HeaderComponent } from './components/pt-header/pt-header.component';
 import { BbUIModule } from '../bb-ui/bb-ui.module';
+import { PanelContainerComponent } from './components/pt-panel-container/pt-panel-container.component';
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent],
+  declarations: [HeaderComponent, FooterComponent, PanelContainerComponent],
   imports: [CommonModule, BbUIModule],
-  exports: [HeaderComponent, FooterComponent],
+  exports: [HeaderComponent, FooterComponent, PanelContainerComponent],
 })
 export class SharedModule {}
