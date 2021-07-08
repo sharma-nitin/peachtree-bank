@@ -1,7 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import 'themes/_global.scss';
 @import 'themes/_variables.scss';
+@import 'themes/_utils.scss';
 @import 'themes/_header.scss';
 @import 'themes/_footer.scss';
-@import 'themes/_global.scss';
-@import 'themes/_utils.scss';
+@import 'themes/transfer-overview.scss';
+@import 'themes/_transfer.scss';
+@import 'themes/transaction-list.scss';
+@import 'themes/_review-transfer.scss';
+
