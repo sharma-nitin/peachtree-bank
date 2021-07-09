@@ -5,7 +5,8 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './pt-panel-container.component.html'
 })
 export class PanelContainerComponent implements OnInit {
-@Input() title = '';
+@Input() title ;
+@Input() icon = '';
 
   constructor() { }
 

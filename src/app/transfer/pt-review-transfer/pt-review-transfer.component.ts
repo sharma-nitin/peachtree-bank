@@ -1,14 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'pt-pt-review-transfer',
   templateUrl: './pt-review-transfer.component.html'
 })
 export class ReviewTransferComponent implements OnInit {
-
-  constructor() { }
+ @Input() data;
+ title = '<b>Review</b> Transfer'
+  constructor(private activeModal: NgbActiveModal) { }
 
   ngOnInit(): void {
+  }
+
+  closeModal(sendData) {
+    this.activeModal.close(sendData);
   }
 
 }

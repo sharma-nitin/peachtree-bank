@@ -1,6 +1,7 @@
 <div class="panel-container">
   <div class="panel-header d-flex align-items-center">
-     <span>{{title}}</span>
+     <a *ngIf="icon"><i class="lni lni-{{icon}}"></i></a>
+     <span [innerHtml]='title'></span>
   </div>
   <div class="panel-body">
     <ng-content></ng-content>

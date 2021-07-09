@@ -11,11 +11,11 @@ html, body {
   background-attachment: fixed;
 }
 
-button{
-  background-color: orange;
-  color: white;
-  padding: 8px;
-  border: none;
-  border-radius: 2px;
+
+.close {
+background-color: white;
+border: none;
+font-size: 20px;
+cursor: pointer;
 }
 
