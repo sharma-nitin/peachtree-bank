@@ -1,12 +1,21 @@
 app-transaction-item {
   display: flex;
   align-items: center;
-  flex-grow: 1 2 2 8;
 }
 
 .transaction-item{
-  padding: 10px 0px;
-  box-shadow: 0px 1px 1px lightgrey;
+  max-height: 400px;
+  overflow: auto;
+  overflow-x: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  .row{
+    padding: 10px 0px;
+    box-shadow: 0px 1px 1px lightgrey;
+  }
 }
 
 #transactionColour{
@@ -18,9 +27,6 @@ text-align: center;
 }
 .merchant-details{
   width: 30%;
-}
-#transactionType{
-
 }
 #transactionAmount {
   width: 50%;

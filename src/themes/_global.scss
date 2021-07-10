@@ -9,6 +9,13 @@ html, body {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  font-size: 14px;
+  @media only screen and (max-width: 768px) {
+    font-size: 12px;
+  }
+  @media only screen and (max-width: 480px) {
+    font-size: 10px;
+  }
 }
 
 

@@ -1,13 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import 'themes/_global.scss';
-@import 'themes/_variables.scss';
-@import 'themes/_utils.scss';
-@import 'themes/_header.scss';
-@import 'themes/_footer.scss';
-@import 'themes/transfer-overview.scss';
-@import 'themes/_transfer.scss';
-@import 'themes/transaction-list.scss';
-@import 'themes/_review-transfer.scss';
-@import 'themes/panel-container.scss';
+@import 'themes/global';
+@import 'themes/variables';
+@import 'themes/header';
+@import 'themes/footer';
+@import 'themes/transfer-overview';
+@import 'themes/transfer';
+@import 'themes/transaction-list';
+@import 'themes/review-transfer';
+@import 'themes/panel-container';
 @import "~bootstrap/dist/css/bootstrap.css";
+
