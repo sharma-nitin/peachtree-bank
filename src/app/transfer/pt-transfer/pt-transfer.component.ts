@@ -13,7 +13,8 @@ export class TransferComponent implements OnInit {
   icon = 'folder';
   transferModel = new Transfer('', '', '');
   sourceAccountData;
-
+  sourceAccountBalance:number;
+  
   constructor(
     private transactionService: TransactionService,
     private modalService: NgbModal
@@ -27,7 +28,8 @@ export class TransferComponent implements OnInit {
     this.transactionService.getSourceAccount().subscribe(
       (res) => {
         this.sourceAccountData = res;
-        this.transferModel.fromAccount = `${this.sourceAccountData.merchant.name}: € ${this.sourceAccountData.transaction.amountCurrency.amount}`;
+        this.sourceAccountBalance = this.sourceAccountData.transaction.amountCurrency.amount;
+        this.transferModel.fromAccount = `${this.sourceAccountData.merchant.name}: € ${this.sourceAccountBalance}`;
       },
       () => {
         this.sourceAccountData = {};

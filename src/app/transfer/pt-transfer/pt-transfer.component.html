@@ -42,6 +42,7 @@
         <input
           type="text"
           id="amount"
+          [ptAmountvalidator]='sourceAccountBalance'
           #amount="ngModel"
           class="form-control form-control-sm"
           [class.is-invalid]="amount.invalid && amount.touched"
@@ -53,14 +54,12 @@
         />
       </div>
       <div *ngIf="amount.errors && (amount.invalid || amount.touched)">
-        <small
-          class="text-danger"
-          *ngIf="amount.errors.required && amount.touched"
-          >Amount is required</small
-        >
-        <small class="text-danger" *ngIf="amount.errors.max"
-          >Amount cannot be greater than 500</small
-        >
+        <small class="text-danger"  *ngIf="amount.errors.required && amount.touched">
+         Amount is required
+        </small>
+        <small class="text-danger" *ngIf="amount.errors.maxlimit">
+          Transfer Limit Exceeded. Max limit is {{amount.errors.requiredValue}}
+        </small>
       </div>
     </div>
 
