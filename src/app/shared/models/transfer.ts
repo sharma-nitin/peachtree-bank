@@ -4,6 +4,11 @@ export class Transfer {
        public toAccount: string,
        public amount: string | number,
        ){}
+
+       clear() {
+         this.toAccount='';
+         this.amount='';
+       }
 }
 
 export const source_account = {

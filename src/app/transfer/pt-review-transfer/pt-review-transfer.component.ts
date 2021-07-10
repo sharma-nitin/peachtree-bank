@@ -17,4 +17,8 @@ export class ReviewTransferComponent implements OnInit {
     this.activeModal.close(sendData);
   }
 
+  sendTransfer(sendData) {
+    this.activeModal.close(sendData);
+  }
+
 }

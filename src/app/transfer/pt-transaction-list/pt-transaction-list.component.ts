@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { TransactionService } from 'src/app/shared/services/transaction.service';
-import * as moment from 'moment';
 
 @Component({
   selector: 'pt-transaction-list',
@@ -19,13 +18,15 @@ export class TransactionListComponent implements OnInit {
   }
 
   fetchTransactions() {
-    this.transactionService.getTransactions().subscribe(
-    (res)=>{
-     this.transactions = res.data;
-    },
-    ()=>{
-      this.transactions =[];
-    })
+    this.transactionService.getTransactions();
+    this.transactionService.transactions$.subscribe(
+      (res)=>{
+       this.transactions = [...this.transactions,...res];
+      },
+      ()=>{
+        this.transactions =[];
+      })
+
   }
 
   randomHexColor = () => {
@@ -34,7 +35,7 @@ export class TransactionListComponent implements OnInit {
   };
 
   trackByDate(index, item){
-    return moment(item.dates.valueDate).valueOf();
+    return item.dates.valueDate
  }
 
  onFilter(event) {
