@@ -1,7 +1,7 @@
 <pt-panel-container [title]="title" [icon]="icon">
-  <app-filter></app-filter>
+  <app-filter (inputChange)="onFilter($event)"></app-filter>
   <ng-container *ngIf="transactions.length > 0; else notransactions">
-    <div class="row" *ngFor="let data of transactions; let i = index">
+    <div class="row transaction-item" *ngFor="let data of (transactions | filterby: searchKey); trackBy:trackByDate;">
       <app-transaction-item>
         <div
           data-test-hook="transactionColour"
@@ -33,9 +33,13 @@
 
       </app-transaction-item>
     </div>
+    <div class="no-transaction" *ngIf="(transactions | filterby: searchKey).length === 0">
+      No transaction matches the search criteria
+    </div>
   </ng-container>
+
 </pt-panel-container>
 
 <ng-template #notransactions>
-  <p>No Past Transaction found.</p>
+  <p class="no-transaction">No Past Transaction found.</p>
 </ng-template>

@@ -8,6 +8,7 @@ import { TransactionService } from 'src/app/shared/services/transaction.service'
 export class TransactionListComponent implements OnInit {
   title = 'Transactions <b>List</b>';
   icon='menu';
+  searchKey = '';
   transactions = [];
 
   constructor(private transactionService:TransactionService,) { }
@@ -30,5 +31,13 @@ export class TransactionListComponent implements OnInit {
     let n = (Math.random() * 0xfffff * 1000000).toString(16);
     return '#' + n.slice(0, 6);
   };
+
+  trackByDate(index, item){
+    return item.dates.valueDate;
+ }
+
+ onFilter(event) {
+   this.searchKey = event;
+ }
 
 }

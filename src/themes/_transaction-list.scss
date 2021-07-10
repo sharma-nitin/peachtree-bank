@@ -4,6 +4,11 @@ app-transaction-item {
   flex-grow: 1 2 2 8;
 }
 
+.transaction-item{
+  padding: 10px 0px;
+  box-shadow: 0px 1px 1px lightgrey;
+}
+
 #transactionColour{
   min-height: 60px;
 }
@@ -22,3 +27,8 @@ text-align: center;
   text-align: right;
 }
 
+.no-transaction {
+  text-align: center;
+  padding: 20px;
+  color: #00a1e0;
+}
