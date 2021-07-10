@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TransactionService } from 'src/app/shared/services/transaction.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'pt-transaction-list',
@@ -33,7 +34,7 @@ export class TransactionListComponent implements OnInit {
   };
 
   trackByDate(index, item){
-    return item.dates.valueDate;
+    return moment(item.dates.valueDate).valueOf();
  }
 
  onFilter(event) {
