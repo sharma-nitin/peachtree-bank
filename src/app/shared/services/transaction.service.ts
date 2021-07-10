@@ -15,6 +15,6 @@ export class TransactionService {
   }
 
    getTransactions = (): Observable<any> => {
-    return this.http.get<any[]>("https://r9vdzv10vd.execute-api.eu-central-1.amazonaws.com/dev/transactions");
+    return this.http.get<any[]>("./assets/mock-data/transactions.json");
   }
 }

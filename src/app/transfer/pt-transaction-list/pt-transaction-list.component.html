@@ -1,3 +1,41 @@
-<pt-panel-container [title]="title" [icon]='icon'>
+<pt-panel-container [title]="title" [icon]="icon">
   <app-filter></app-filter>
+  <ng-container *ngIf="transactions.length > 0; else notransactions">
+    <div class="row" *ngFor="let data of transactions; let i = index">
+      <app-transaction-item>
+        <div
+          data-test-hook="transactionColour"
+          id="transactionColour"
+          [ngStyle]="{ 'border-left': '6px solid ' + randomHexColor() }"
+        ></div>
+
+        <div data-test-hook="transactionDate" id="transactionDate">
+          {{ data.dates?.valueDate | date: "MMM dd" }}
+        </div>
+
+
+        <div data-test-hook='transactionMerchantName' id="transactionMerchantName">
+          <strong>{{ data.merchant?.name}}</strong>
+        </div>
+
+        <small data-test-hook='transactionType' id="transactionType">
+          {{ data.transaction?.type}}
+        </small>
+
+        <div data-test-hook='transactionAmount' id="transactionAmount"
+        [ngClass]="{'credit': data.transaction.creditDebitIndicator === 'CRDT', 'debit' : data.transaction.creditDebitIndicator === 'DBIT' }">
+          <span *ngIf="data.transaction.creditDebitIndicator === 'DBIT'">-</span>
+          {{data.transaction?.amountCurrency?.amount | currency
+            : data.transaction?.amountCurrency?.currencyCode
+            : 'symbol-narrow'
+            : '1.2-2'}}
+        </div>
+
+      </app-transaction-item>
+    </div>
+  </ng-container>
 </pt-panel-container>
+
+<ng-template #notransactions>
+  <p>No Past Transaction found.</p>
+</ng-template>

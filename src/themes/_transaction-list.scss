@@ -1,0 +1,24 @@
+app-transaction-item {
+  display: flex;
+  align-items: center;
+  flex-grow: 1 2 2 8;
+}
+
+#transactionColour{
+  min-height: 60px;
+}
+#transactionDate{
+width: 20%;
+text-align: center;
+}
+.merchant-details{
+  width: 30%;
+}
+#transactionType{
+
+}
+#transactionAmount {
+  width: 50%;
+  text-align: right;
+}
+
