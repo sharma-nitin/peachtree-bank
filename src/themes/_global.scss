@@ -3,6 +3,10 @@
   margin: 0;
   padding: 0;
 }
+html{
+  position:relative;
+  min-height: 100%;
+}
 
 html, body {
   background-image: url("../assets/background.jpg");
@@ -16,6 +20,9 @@ html, body {
   @media only screen and (max-width: 480px) {
     font-size: 10px;
   }
+}
+.content-body{
+  margin-bottom:2rem;
 }
 
 
