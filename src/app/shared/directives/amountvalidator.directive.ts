@@ -46,7 +46,7 @@ onKeyDown(event: KeyboardEvent): void {
     const input = control.value;
     const sourceBalance = Number(this.balance);
 
-    if (isNaN(input)) {
+    if (isNaN(input) || input<=0) {
       return { invalidentry: true };
     }
 
