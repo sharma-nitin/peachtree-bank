@@ -27,7 +27,7 @@ export class TransactionService {
    */
   getTransactions = () => {
     this.http.get(this.localUrl).subscribe(
-      (res:ITransactionResponse) => {
+      (res: ITransactionResponse) => {
         this.transactions.next(res.data);
       },
       () => {

@@ -10,7 +10,7 @@ export class TransactionListComponent implements OnInit {
   title = 'Transactions <b>List</b>';
   icon = 'menu';
   searchKey = '';
-  transactions:Array<ITransactions> = [];
+  transactions: Array<ITransactions> = [];
 
   constructor(private transactionService: TransactionService) {}
 
@@ -48,7 +48,7 @@ export class TransactionListComponent implements OnInit {
    * @param item transaction item
    * @returns unique date value for trackby
    */
-  trackByDate(index: number, item:ITransactions): number | string {
+  trackByDate(index: number, item: ITransactions): number | string {
     return item.dates.valueDate;
   }
 

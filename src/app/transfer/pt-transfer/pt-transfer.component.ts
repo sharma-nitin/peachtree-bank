@@ -14,7 +14,7 @@ export class TransferComponent implements OnInit {
   title = '<b>Make</b> Transfer';
   icon = 'folder';
   transferModel = new Transfer('', '', '');
-  sourceAccountData : ITransactions;
+  sourceAccountData: ITransactions;
   sourceAccountBalance: number;
 
   constructor(

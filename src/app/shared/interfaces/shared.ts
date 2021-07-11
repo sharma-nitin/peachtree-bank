@@ -5,9 +5,9 @@ export interface Ivalidator {
 }
 
 export interface IReviewData {
-  fromAccount: string,
+  fromAccount: string;
   toAccount: string;
-  amount:  number|string;
+  amount: number|string;
 }
 
 export interface ITransactions {
@@ -27,7 +27,7 @@ export interface IDates {
 }
 
 export interface IAmountCurrency {
-  amount: number|string;
+  amount: number| string;
   currencyCode: string;
 }
 
