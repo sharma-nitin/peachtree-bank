@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PtTransferOverviewComponent } from './pt-transfer-overview.component';
+import { TransferOverviewComponent } from './pt-transfer-overview.component';
 
-describe('PtTransferOverviewComponent', () => {
-  let component: PtTransferOverviewComponent;
-  let fixture: ComponentFixture<PtTransferOverviewComponent>;
+describe('TransferOverviewComponent', () => {
+  let component: TransferOverviewComponent;
+  let fixture: ComponentFixture<TransferOverviewComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PtTransferOverviewComponent ]
+      declarations: [ TransferOverviewComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PtTransferOverviewComponent);
+    fixture = TestBed.createComponent(TransferOverviewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

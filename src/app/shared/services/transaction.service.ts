@@ -19,7 +19,7 @@ export class TransactionService {
    */
   getSourceAccount = (): Observable<any> => {
     return of(sourceAccount);
-  };
+  }
 
   /**
    * fetch transactions data from the server
@@ -33,7 +33,7 @@ export class TransactionService {
         this.transactions.next([]);
       }
     );
-  };
+  }
 
   /**
    *
@@ -60,5 +60,5 @@ export class TransactionService {
       },
     };
     this.transactions.next([payload]);
-  };
+  }
 }

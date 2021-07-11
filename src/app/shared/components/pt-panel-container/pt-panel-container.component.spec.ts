@@ -1,25 +1,30 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
+import { PanelContainerComponent } from './pt-panel-container.component';
+import { By } from '@angular/platform-browser';
 
-import { PtPanelContainerComponent } from './pt-panel-container.component';
-
-describe('PtPanelContainerComponent', () => {
-  let component: PtPanelContainerComponent;
-  let fixture: ComponentFixture<PtPanelContainerComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ PtPanelContainerComponent ]
-    })
-    .compileComponents();
-  });
-
+describe('PanelContainerComponent', () => {
+  let component: PanelContainerComponent;
+  let fixture: ComponentFixture<PanelContainerComponent>;
+  let de: DebugElement;
   beforeEach(() => {
-    fixture = TestBed.createComponent(PtPanelContainerComponent);
+    TestBed.configureTestingModule({
+      schemas: [NO_ERRORS_SCHEMA],
+      declarations: [PanelContainerComponent]
+    });
+    fixture = TestBed.createComponent(PanelContainerComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    component.title = 'title';
+    de = fixture.debugElement.query(By.all());
   });
 
-  it('should create', () => {
+  it('can load instance', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('title to be displayed inside span', () => {
+    fixture.detectChanges();
+    const el = de.nativeElement;
+    expect(el.innerText).toMatch(/title/i);
   });
 });

@@ -40,13 +40,12 @@ export class TransferComponent implements OnInit {
       }
     );
   }
-
-  /**
-   *
-   * @param transferForm
-   * opens review modal with transfer modal details
-   * on sumbit, post the transaction, closes the modal and clear the transfer form
-   */
+/**
+ *
+ * @param transferForm
+ * opens review modal with transfer modal details
+ * on sumbit, post the transaction, closes the modal and clear the transfer form
+ */
   onSubmit(transferForm): void {
     const modalRef = this.modalService.open(ReviewTransferComponent);
     const data = {
