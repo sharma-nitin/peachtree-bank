@@ -1,6 +1,6 @@
 # Peachtree Bank: Make a Transaction
 
-#Live Demo - 
+Live Demo - 
 https://sharma-nitin.github.io/peachtree-bank/
 
 # Local startup
