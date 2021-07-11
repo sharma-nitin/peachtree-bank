@@ -7,17 +7,17 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class ReviewTransferComponent implements OnInit {
  @Input() data;
- title = '<b>Review</b> Transfer'
+ title = '<b>Review</b> Transfer';
   constructor(private activeModal: NgbActiveModal) { }
 
   ngOnInit(): void {
   }
 
-  closeModal(sendData) {
+  closeModal(sendData): void {
     this.activeModal.close(sendData);
   }
 
-  sendTransfer(sendData) {
+  sendTransfer(sendData): void {
     this.activeModal.close(sendData);
   }
 

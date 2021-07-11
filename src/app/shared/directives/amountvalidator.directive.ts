@@ -1,5 +1,6 @@
-import { NG_VALIDATORS, FormControl } from '@angular/forms'
+import { NG_VALIDATORS, FormControl } from '@angular/forms';
 import { Directive, Input, ElementRef, HostListener } from '@angular/core';
+import { Ivalidator } from '../interfaces/shared';
 
 @Directive({
   selector: '[ptAmountvalidator]',
@@ -9,38 +10,37 @@ import { Directive, Input, ElementRef, HostListener } from '@angular/core';
 })
 export class AmountvalidatorDirective {
 
-@Input("ptAmountvalidator") balance:number
+@Input('ptAmountvalidator') balance: number;
 
 private regex: RegExp = new RegExp(/^\d*\.?\d{0,4}$/g);
 private specialKeys: Array<string> = ['Backspace', 'Tab', 'End', 'Home', 'ArrowLeft', 'ArrowRight', 'Del', 'Delete'];
 constructor(private el: ElementRef) {
 }
 @HostListener('keydown', ['$event'])
-onKeyDown(event: KeyboardEvent) {
-  console.log(this.el.nativeElement.value);
+onKeyDown(event: KeyboardEvent): void {
 
   if (this.specialKeys.indexOf(event.key) !== -1) {
     return;
   }
-  let current: string = this.el.nativeElement.value;
+  const current: string = this.el.nativeElement.value;
   const position = this.el.nativeElement.selectionStart;
-  const next: string = [current.slice(0, position), event.key == 'Decimal' ? '.' : event.key, current.slice(position)].join('');
+  const next: string = [current.slice(0, position), event.key === 'Decimal' ? '.' : event.key, current.slice(position)].join('');
   if (next && !String(next).match(this.regex)) {
     event.preventDefault();
   }
 }
 
-  validate(control: FormControl) {
+  validate(control: FormControl): Ivalidator {
 
-    let input = control.value;
-    let sourceBalance = Number(this.balance);
+    const input = control.value;
+    const sourceBalance = Number(this.balance);
 
     if (isNaN(input)) {
-      return { 'invalid': true }
+      return { invalidentry: true };
     }
 
     if (input > sourceBalance + 500) {
-      return { 'maxlimit': true, 'requiredValue': sourceBalance+500 }
+      return { maxlimit: true, requiredValue: sourceBalance + 500 };
     }
 
     return null;

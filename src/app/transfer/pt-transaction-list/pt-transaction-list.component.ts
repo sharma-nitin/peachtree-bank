@@ -7,38 +7,38 @@ import { TransactionService } from 'src/app/shared/services/transaction.service'
 })
 export class TransactionListComponent implements OnInit {
   title = 'Transactions <b>List</b>';
-  icon='menu';
+  icon = 'menu';
   searchKey = '';
   transactions = [];
 
-  constructor(private transactionService:TransactionService,) { }
+  constructor(private transactionService: TransactionService) { }
 
   ngOnInit(): void {
     this.fetchTransactions();
   }
 
-  fetchTransactions() {
+  fetchTransactions(): void {
     this.transactionService.getTransactions();
     this.transactionService.transactions$.subscribe(
-      (res)=>{
-       this.transactions = [...this.transactions,...res];
+      (res) => {
+       this.transactions = [...this.transactions, ...res];
       },
-      ()=>{
-        this.transactions =[];
-      })
+      () => {
+        this.transactions = [];
+      });
 
   }
 
   randomHexColor = () => {
-    let n = (Math.random() * 0xfffff * 1000000).toString(16);
+    const n = (Math.random() * 0xfffff * 1000000).toString(16);
     return '#' + n.slice(0, 6);
-  };
+  }
 
-  trackByDate(index, item){
-    return item.dates.valueDate
+  trackByDate(index, item): number | string{
+    return item.dates.valueDate;
  }
 
- onFilter(event) {
+ onFilter(event): void {
    this.searchKey = event;
  }
 

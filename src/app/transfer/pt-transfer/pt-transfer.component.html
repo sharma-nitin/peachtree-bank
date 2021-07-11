@@ -57,6 +57,9 @@
         <small class="text-danger"  *ngIf="amount.errors.required && amount.touched">
          Amount is required
         </small>
+        <small class="text-danger"  *ngIf="amount.errors.invalidentry && amount.touched">
+         Amount entered is not valid
+         </small>
         <small class="text-danger" *ngIf="amount.errors.maxlimit">
           Transfer Limit Exceeded. Max limit is {{amount.errors.requiredValue}}
         </small>

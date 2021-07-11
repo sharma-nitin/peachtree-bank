@@ -8,8 +8,20 @@ import { FilterbyPipe } from './pipes/filterby.pipe';
 import { AmountvalidatorDirective } from './directives/amountvalidator.directive';
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent, PanelContainerComponent, FilterbyPipe, AmountvalidatorDirective],
+  declarations: [
+    HeaderComponent,
+    FooterComponent,
+    PanelContainerComponent,
+    FilterbyPipe,
+    AmountvalidatorDirective,
+  ],
   imports: [CommonModule, BbUIModule],
-  exports: [HeaderComponent, FooterComponent, PanelContainerComponent,FilterbyPipe,AmountvalidatorDirective],
+  exports: [
+    HeaderComponent,
+    FooterComponent,
+    PanelContainerComponent,
+    FilterbyPipe,
+    AmountvalidatorDirective,
+  ],
 })
 export class SharedModule {}
