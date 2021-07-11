@@ -1,15 +1,16 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { ITransactions } from '../interfaces/shared';
 
 @Pipe({
   name: 'filterby',
 })
 export class FilterbyPipe implements PipeTransform {
-  transform(items: any[], searchkey: string): any {
+  transform(items: Array<ITransactions>, searchkey: string): Array<ITransactions> {
     if (!items) {
       return items;
     }
     return items
-      .filter((item) =>  // filter out the transaction based on search key
+      .filter((item: ITransactions) =>  // filter out the transaction based on search key
         item.merchant.name.toLowerCase().includes(searchkey.toLowerCase())
       )
       .sort((a, b) => {  // sort the transactions in decreasing order by date

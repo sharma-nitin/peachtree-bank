@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { IReviewData, ITransactions } from 'src/app/shared/interfaces/shared';
 import { Transfer } from 'src/app/shared/models/transfer';
 import { TransactionService } from 'src/app/shared/services/transaction.service';
 import { ReviewTransferComponent } from '../pt-review-transfer/pt-review-transfer.component';
@@ -12,7 +14,7 @@ export class TransferComponent implements OnInit {
   title = '<b>Make</b> Transfer';
   icon = 'folder';
   transferModel = new Transfer('', '', '');
-  sourceAccountData;
+  sourceAccountData : ITransactions;
   sourceAccountBalance: number;
 
   constructor(
@@ -31,12 +33,8 @@ export class TransferComponent implements OnInit {
     this.transactionService.getSourceAccount().subscribe(
       (res) => {
         this.sourceAccountData = res;
-        this.sourceAccountBalance =
-          this.sourceAccountData.transaction.amountCurrency.amount;
+        this.sourceAccountBalance = Number(this.sourceAccountData.transaction.amountCurrency.amount);
         this.transferModel.fromAccount = `${this.sourceAccountData.merchant.name}: € ${this.sourceAccountBalance}`;
-      },
-      () => {
-        this.sourceAccountData = {};
       }
     );
   }
@@ -46,7 +44,7 @@ export class TransferComponent implements OnInit {
  * opens review modal with transfer modal details
  * on sumbit, post the transaction, closes the modal and clear the transfer form
  */
-  onSubmit(transferForm): void {
+  onSubmit(transferForm: NgForm): void {
     const modalRef = this.modalService.open(ReviewTransferComponent);
     const data = {
       toAccount: this.transferModel.toAccount,

@@ -1,12 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { IReviewData } from 'src/app/shared/interfaces/shared';
 
 @Component({
   selector: 'pt-pt-review-transfer',
   templateUrl: './pt-review-transfer.component.html',
 })
 export class ReviewTransferComponent implements OnInit {
-  @Input() data;
+  @Input() data: IReviewData;
   title = '<b>Review</b> Transfer';
   constructor(private activeModal: NgbActiveModal) {}
 
@@ -17,7 +18,7 @@ export class ReviewTransferComponent implements OnInit {
    * @param sendData
    * closes the modal and passes close notifier data
    */
-  closeModal(sendData): void {
+  closeModal(sendData: string): void {
     this.activeModal.close(sendData);
   }
 
@@ -26,7 +27,7 @@ export class ReviewTransferComponent implements OnInit {
    * @param sendData
    * closes the modal and passes sumbit notifier data
    */
-  sendTransfer(sendData): void {
+  sendTransfer(sendData: string): void {
     this.activeModal.close(sendData);
   }
 }

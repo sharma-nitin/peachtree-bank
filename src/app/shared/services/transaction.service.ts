@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of, Subject } from 'rxjs';
+import { IReviewData, ITransactionResponse, ITransactions } from '../interfaces/shared';
 import { sourceAccount } from '../models/transfer';
 
 @Injectable({
@@ -10,14 +11,14 @@ export class TransactionService {
   localUrl = 'assets/mock-data/transactions.json';
   constructor(private http: HttpClient) {}
 
-  private transactions = new Subject<any>();
+  private transactions = new Subject<Array<ITransactions>>();
   transactions$ = this.transactions.asObservable();
 
   /**
    *
    * @returns source Account information of user
    */
-  getSourceAccount = (): Observable<any> => {
+  getSourceAccount = (): Observable<ITransactions> => {
     return of(sourceAccount);
   }
 
@@ -25,8 +26,8 @@ export class TransactionService {
    * fetch transactions data from the server
    */
   getTransactions = () => {
-    this.http.get<any[]>(this.localUrl).subscribe(
-      (res: any) => {
+    this.http.get(this.localUrl).subscribe(
+      (res:ITransactionResponse) => {
         this.transactions.next(res.data);
       },
       () => {
@@ -40,7 +41,7 @@ export class TransactionService {
    * @param data
    * post the transaction data
    */
-  postTransaction = (data) => {
+  postTransaction = (data: IReviewData) => {
     const payload = {
       categoryCode: '#15238',
       dates: {

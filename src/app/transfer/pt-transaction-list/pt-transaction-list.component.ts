@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ITransactions } from 'src/app/shared/interfaces/shared';
 import { TransactionService } from 'src/app/shared/services/transaction.service';
 
 @Component({
@@ -9,7 +10,7 @@ export class TransactionListComponent implements OnInit {
   title = 'Transactions <b>List</b>';
   icon = 'menu';
   searchKey = '';
-  transactions = [];
+  transactions:Array<ITransactions> = [];
 
   constructor(private transactionService: TransactionService) {}
 
@@ -47,7 +48,7 @@ export class TransactionListComponent implements OnInit {
    * @param item transaction item
    * @returns unique date value for trackby
    */
-  trackByDate(index, item): number | string {
+  trackByDate(index: number, item:ITransactions): number | string {
     return item.dates.valueDate;
   }
 
@@ -55,7 +56,7 @@ export class TransactionListComponent implements OnInit {
    *
    * @param event search field value
    */
-  onFilter(event): void {
+  onFilter(event: string): void {
     this.searchKey = event;
   }
 }

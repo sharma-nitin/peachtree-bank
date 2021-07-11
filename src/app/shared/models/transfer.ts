@@ -2,7 +2,7 @@ export class Transfer {
   constructor(
     public fromAccount: string,
     public toAccount: string,
-    public amount: string | number
+    public amount: number| string
   ) {}
 }
 
