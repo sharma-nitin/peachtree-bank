@@ -1,8 +1,10 @@
 <div class="panel-container">
+  <!-- panel header displaying dynamic icon and title provided -->
   <div class="panel-header d-flex align-items-center">
      <a *ngIf="icon"><i class="lni lni-{{icon}}"></i></a>
      <span [innerHtml]='title'></span>
   </div>
+  <!-- panel body displaying dynamic content provided -->
   <div class="panel-body">
     <ng-content></ng-content>
   </div>

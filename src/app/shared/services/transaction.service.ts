@@ -4,49 +4,61 @@ import { Observable, of, Subject } from 'rxjs';
 import { sourceAccount } from '../models/transfer';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TransactionService {
   localUrl = 'assets/mock-data/transactions.json';
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   private transactions = new Subject<any>();
   transactions$ = this.transactions.asObservable();
 
+  /**
+   *
+   * @returns source Account information of user
+   */
   getSourceAccount = (): Observable<any> => {
     return of(sourceAccount);
-  }
+  };
 
-   getTransactions = () => {
+  /**
+   * fetch transactions data from the server
+   */
+  getTransactions = () => {
     this.http.get<any[]>(this.localUrl).subscribe(
       (res: any) => {
         this.transactions.next(res.data);
-       },
-       () => {
-         this.transactions.next([]);
-       });
-  }
+      },
+      () => {
+        this.transactions.next([]);
+      }
+    );
+  };
 
+  /**
+   *
+   * @param data
+   * post the transaction data
+   */
   postTransaction = (data) => {
     const payload = {
       categoryCode: '#15238',
       dates: {
-        valueDate: new Date().getTime()
+        valueDate: new Date().getTime(),
       },
       transaction: {
         amountCurrency: {
           amount: data.amount,
-          currencyCode: 'EUR'
+          currencyCode: 'EUR',
         },
         type: 'Online Transfer',
-        creditDebitIndicator: 'DBIT'
+        creditDebitIndicator: 'DBIT',
       },
       merchant: {
         name: data.toAccount,
-        accountNumber: 'PX64397745065188826'
-      }
+        accountNumber: 'PX64397745065188826',
+      },
     };
     this.transactions.next([payload]);
-
-  }
+  };
 }

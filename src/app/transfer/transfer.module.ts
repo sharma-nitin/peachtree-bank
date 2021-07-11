@@ -8,16 +8,15 @@ import { FormsModule } from '@angular/forms';
 import { BbUIModule } from '../bb-ui/bb-ui.module';
 import { SharedModule } from '../shared/shared.module';
 
-
-
+const COMPONENTS = [
+  TransferComponent,
+  TransactionListComponent,
+  ReviewTransferComponent,
+  TransferOverviewComponent,
+];
 @NgModule({
-  declarations: [TransferComponent, TransactionListComponent, ReviewTransferComponent, TransferOverviewComponent],
-  imports: [
-    CommonModule,
-    FormsModule,
-    BbUIModule,
-    SharedModule
-  ],
-  exports: [TransferComponent, TransactionListComponent, ReviewTransferComponent, TransferOverviewComponent],
+  declarations: COMPONENTS,
+  imports: [CommonModule, FormsModule, BbUIModule, SharedModule],
+  exports: COMPONENTS,
 })
-export class TransferModule { }
+export class TransferModule {}

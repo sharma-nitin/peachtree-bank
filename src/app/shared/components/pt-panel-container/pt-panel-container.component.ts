@@ -2,15 +2,13 @@ import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'pt-panel-container',
-  templateUrl: './pt-panel-container.component.html'
+  templateUrl: './pt-panel-container.component.html',
 })
 export class PanelContainerComponent implements OnInit {
-@Input() title ;
-@Input() icon = '';
+  @Input() title;
+  @Input() icon = '';
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
