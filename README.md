@@ -1,7 +1,11 @@
 # Peachtree Bank: Make a Transaction
 
-Live Demo - 
-https://sharma-nitin.github.io/peachtree-bank/
+Live Demo -
+ - https://sharma-nitin.github.io/peachtree-bank/
+
+Github Repo:
+   - https://github.com/sharma-nitin/peachtree-bank 
+
 
 # Local startup
 
