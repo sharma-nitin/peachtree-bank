@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { TransactionService } from 'src/app/shared/services/transaction.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { TransferComponent } from './pt-transfer.component';
 import { of } from 'rxjs';
 
@@ -88,8 +88,9 @@ describe('TransferComponent', () => {
   it('makes call to onSubmit ', () => {
     spyOn(component, 'onSubmit').and.callThrough();
     fixture.whenStable().then(() => {
-      component.onSubmit('');
-      expect(component.onSubmit('')).toHaveBeenCalled();
+      let form:NgForm
+      component.onSubmit(form);
+      expect(component.onSubmit(form)).toHaveBeenCalled();
     });
   });
 });

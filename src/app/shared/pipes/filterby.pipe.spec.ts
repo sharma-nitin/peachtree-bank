@@ -47,10 +47,6 @@ describe('FilterbyPipe', () => {
     expect(pipe).toBeTruthy();
   });
 
-  it('Filter pipe without data', () => {
-    expect(pipe.transform(undefined, '')).toEqual(mockdata);
-  });
-
   it('Filter item based on empty search key', () => {
     expect(pipe.transform(mockdata, '').length).toEqual(mockdata.length);
   });
